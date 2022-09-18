@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:js/js.dart';
+
+
+import 'package:flutter_estudo/telas/homepage.dart';
+
 
 class redirect extends StatefulWidget {
   const redirect({Key? key}) : super(key: key);
@@ -11,6 +12,7 @@ class redirect extends StatefulWidget {
 }
 
 class _redirectState extends State<redirect> {
+  bool value = false;
   @override
   Widget _body() {
     return SingleChildScrollView(
@@ -24,7 +26,6 @@ class _redirectState extends State<redirect> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-
                   height: 150,
                   width: 150,
                   child: Image.asset('assets/images/counter.png'),
@@ -48,19 +49,9 @@ class _redirectState extends State<redirect> {
                     children: [
                       ElevatedButton(
                         onPressed: () {
-                          Navigator.of(context).pushNamed('/home');
+                          Navigator.of(context).pushNamed('/cadastrar');
                         },
-                        child: Text('Solicitar Serviços'),
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      ElevatedButton(
-                        onPressed: () {
-                          Navigator.of(context)
-                              .pushNamed('/cadastrar');
-                        },
-                        child: Text('Cadastrar Sua Empresa'),
+                        child: Text('Cadastrar'),
                       ),
                     ],
                   ),
@@ -72,22 +63,30 @@ class _redirectState extends State<redirect> {
                     children: [
                       ElevatedButton(
                         onPressed: () {
-                          Navigator.of(context)
-                              .pushNamed('/login');
+                          Navigator.of(context).pushNamed('/login');
                         },
-                        child: Text('Fazer login como empresa'),
+                        child: Text('Fazer login'),
+                      )
+                    ],
+                  ),
+                ),
+                  Container(
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      ElevatedButton(
+                        onPressed: () {
+                           Navigator.of(context).push(MaterialPageRoute(
+                                                  builder: (context) => homePage(useremail: 'Visitante@gmail.com', nome: 'Visitante',)));
+                        },
+                        child: Text('Visitante'),
                       )
                     ],
                   ),
                 )
 
-                // RaisedButton(
-                // color: Colors.blue,
-                // onPressed: () {
-
-                // },
-                //  child: Text('login'),
-                // ),
+              
               ],
             ),
           ),
